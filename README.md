@@ -6,7 +6,7 @@ Roster: Ziying Jian, Nora Miller, Gloria Lee
 #### ALTester Algo
 <restate here>
   
-#### OrderedArrayList
+#### OrderedArrayList Algo
 <restate here>
   
   
