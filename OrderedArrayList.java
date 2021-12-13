@@ -157,12 +157,12 @@ public class OrderedArrayList {
     OrderedArrayList Franz = new OrderedArrayList();
    // testing linear search
    for( int i = 0; i < 3; i++ )
-   Franz.addLinear( (int)( i);
+   Franz.addLinear( (int)( i));
    System.out.println( Franz );
    // testing binary search
    Franz = new OrderedArrayList();
    for( int i = 0; i < 3; i++ ){}
-     Franz.addBinary( (int)( i );
+     Franz.addBinary( (int)( i ));
    System.out.println( Franz );
 
 
