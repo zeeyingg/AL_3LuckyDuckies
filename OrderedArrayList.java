@@ -10,16 +10,16 @@ public class OrderedArrayList {
 
   public OrderedArrayList(){
 		this._arr = new ArrayList<Integer>();
-	//	this._size = 0;
-  // for(Integer i = 0; i < this.size() ; i++) // iterates through every element in the array
-  //   this.addLinear(_arr[i]); // invokes addLinear on each element in the array
+		this.size() = 0;
+  for(Integer i = 0; i < this.size() ; i++) // iterates through every element in the array
+    this.addLinear(_arr[i]); // invokes addLinear on each element in the array
   }
 
 
 	public OrderedArrayList(int size){
 		this._arr = new ArrayList<Integer>();
 		this._arr.add((int)(Math.random()*100));
-	//	this._size = 1;
+		this.size() = 1;
 		for(Integer i = 0 ; i < size-1 ; i ++){
 			addLinear( (int)(Math.random()*100));
 		}
@@ -31,29 +31,25 @@ public class OrderedArrayList {
       // 1.2 Once this is not the case, exit the loop (do not add any more items of bob to _arr)
     // 2. for each item in the rest of the bob, adds this items to _arr using addLinear
 
-	// public int getSize(){
-	// 	return this._size;
-	// }
-
 
 	public boolean addLinear(int value) {
      if (this.size() == 0){
        this._arr.add(value);
      } else if (this._arr.get(0) > value) {
 			this._arr.add(0,value);
-			this._size += 1; // adds the value at the beginning, because it is less than everything already in _arr
+			//this.size() += 1; // adds the value at the beginning, because it is less than everything already in _arr
 			return true;
 
     }	else if (value > this._arr.get(this._arr.size()-1)) {
 			this._arr.add(value);
-			this._size += 1;
+		//	this.size() += 1;
 			return true;
 
     }	else {
 			for(int i = 0; i < this._arr.size(); i++) {
 				if (this._arr.get(i) <= value && this._arr.get(i+1) >= value) { //should this be >= and <= or just > and <
 					this._arr.add(i+1, value);
-					this._size += 1;
+				//	this.size() += 1;
 					return true;}
 				}
 			}
@@ -66,13 +62,13 @@ public class OrderedArrayList {
       int maxIndexConsidered = this.size() - 1;
       int splitter = (int)( (maxIndexConsidered + minIndexConsidered)/2 );
       // all of these up here are INDEXES
-      if (this._size == 0){
+      if (this.size() == 0){
         this._arr.add(value);
         return true;
       }
       else if (value <= this.get(0)){
         this._arr.add(0,value);
-  			this._size += 1;
+  			this.size() += 1;
         return true;
 
       } else if(value >= this.get(this.size() - 1)){
@@ -125,7 +121,7 @@ public class OrderedArrayList {
 		if ( foo.length() > 1 )
 			//shave off trailing comma
 			foo = foo.substring( 0, foo.length()-1 );
-		foo +=( "] size:" + this._size);
+		foo +=( "] size:" + this.size());
 		return foo;
 	}
 
