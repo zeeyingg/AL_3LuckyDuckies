@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class ALTester{
 
-	public int inOrder(ArrayList<Integer> bob){
-		for(int i = 0; i < bob.length - 1; i++){
+	public boolean inOrder(ArrayList<Integer> array){
+		for(int i = 0; i < array.size() - 1; i++){
 			compareTo(bob[i], bob[i+1]); // what do we do with this value
 	} if (compareTo(bob[i], bob[i+1]) == -1){
 		System.err.println("List is not ordered at index: " + i);
@@ -24,6 +24,14 @@ public class ALTester{
    }
 
 	public static void main(String[] args){
+
+		OrderedArrayList lul = new OrderedArrayList();
+		OrderedArrayList bob = new OrderedArrayList(23);
+		System.out.println(lul);
+		System.out.println(lul._size);
+		System.out.println(bob);
+		System.out.println(bob._size);
+
 		// testing compareTo
 		Integer a = 9;
 		Integer b = 9;

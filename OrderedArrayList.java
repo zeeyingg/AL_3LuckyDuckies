@@ -1,13 +1,79 @@
-import java.util.ArrayList;
+// addOrd is a nonstatic method. But why can i call it in the constructor without specifying object?
 
+
+import java.util.ArrayList;
+import java.lang.Math;
 public class OrderedArrayList {
 
-  ArrayList<Integer> _arr = new ArrayList<Integer>(23); // instance variable
+  private ArrayList<Integer> _arr;
+	private int _size; // instance variable
 
-  public OrderedArrayList(){ //
+
+
+  public OrderedArrayList(){
+		this._arr = new ArrayList<Integer>();
+		this._size = 0;
   // for(Integer i = 0; i < this.size() ; i++) // iterates through every element in the array
   //   this.addOrd(_arr[i]); // invokes addOrd on each element in the array
   }
+
+
+	public OrderedArrayList(int size){
+		this._arr = new ArrayList<Integer>();
+		this._arr.add((int)(Math.random()*100));
+		this._size = 1;
+		for(Integer i = 0 ; i < size-1 ; i ++){
+			addOrd( (int)(Math.random()*100));
+		}
+
+	}
+
+	public boolean addOrd(int value) {
+
+		if (this._arr.get(0) > value) {
+			this._arr.add(0,value);
+			this._size += 1; // adds the value at the beginning, because it is less than everything already in _arr
+			return true;
+
+		}
+
+		else if (value > this._arr.get(this._arr.size()-1)) {
+			this._arr.add(value);
+			this._size += 1;
+			return true;
+
+		}
+
+		else {
+			for(int i = 0; i < this._arr.size(); i++) {
+				if (this._arr.get(i) <= value && this._arr.get(i+1) >= value) { //should this be >= and <= or just > and <
+					this._arr.add(i+1, value);
+					this._size += 1;
+					return true;}
+				}
+			}
+			return false;
+		}//end addOrd
+
+	public String toString(){
+		String foo = "[";
+		for( Integer i = 0; i < this._arr.size(); i++ ) {
+			foo += this._arr.get(i) + ",";
+		}
+		if ( foo.length() > 1 )
+			//shave off trailing comma
+			foo = foo.substring( 0, foo.length()-1 );
+		foo += "]";
+
+		return foo;
+
+	}
+
+
+
+
+
+
 
   public OrderedArrayList(ArrayList<Integer> bob){
     // 1. starts at the beginning of bob and finds the longest possible section that is in order
@@ -25,33 +91,7 @@ public class OrderedArrayList {
   2) adds the value into the array list at that insertion point
   3) returns true once this operation has been completed
   */
-
-  public String toString(ArrayList<Integer> bob){
-    String str = ""
-    return
-  }
-
-  public boolean addOrd(int value) {
-
-    if (_arr[0] > value) {
-      add(0, value); // adds the value at the beginning, because it is less than everything already in _arr
-      return true;
-    }
-
-    else if (value > _arr[_arr.size()-1]) {
-      add(value);
-      return true;
-    }
-
-    else {
-        for(int i = 0; i < _arr.size(); i++) {
-          if (_arr[i] < value && _arr[i+1] > value) {
-            add(i, value);
-            return true;
-          }
-        }
-      }
-    }//end addOrd
+/*
 
     public int find(int value) { // returns the index of a value;
       // iterate through _arr checking whether every element is the value
@@ -71,17 +111,6 @@ public class OrderedArrayList {
       return true;
     }
 
-    public String toString()
-    {
-      String foo = "[";
-      for( Integer i = 0; i < _size; i++ ) {
-        foo += _arr[i] + ",";
-      }
-      if ( foo.length() > 1 )
-        //shave off trailing comma
-        foo = foo.substring( 0, foo.length()-1 );
-      foo += "]";
-      return foo;
-    }
 
+*/
 }//end class
