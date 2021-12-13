@@ -157,7 +157,7 @@ public class OrderedArrayList {
     OrderedArrayList Franz = new OrderedArrayList();
    // testing linear search
    for( int i = 0; i < 3; i++ )
-   Franz._arr.addLinear( (int)( 6 * Math.random() ) );
+   Franz.addLinear( (int)( 6 * Math.random() ) );
    System.out.println( Franz );
    // testing binary search
    Franz = new OrderedArrayList();
