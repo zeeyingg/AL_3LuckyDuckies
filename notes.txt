@@ -11,7 +11,7 @@ NOTES TO MYKOLYK (AND TO SELVES):
 
 TO DO ON MONDAY: 
 
-1. Run ALTester; make sure that inOrder() works
+// 1. Run ALTester; make sure that inOrder() works
 2. Initialize a new OrderedArrayList to ... 
 3. ... test addOrd
 4. Once that works, test the overwritten constructor using ArrayList<Integer> bob
