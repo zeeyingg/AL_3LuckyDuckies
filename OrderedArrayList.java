@@ -6,30 +6,21 @@ public class OrderedArrayList {
 
   private ArrayList<Integer> _arr;
 
-
-
+  // default constructor
   public OrderedArrayList(){
 		this._arr = new ArrayList<Integer>();
-		this.size() = 0;
   for(Integer i = 0; i < this.size() ; i++) // iterates through every element in the array
-    this.addLinear(_arr[i]); // invokes addLinear on each element in the array
+    this.addLinear(_arr.get(i)); // invokes addLinear on each element in the array
   }
 
 
 	public OrderedArrayList(int size){
 		this._arr = new ArrayList<Integer>();
 		this._arr.add((int)(Math.random()*100));
-		this.size() = 1;
 		for(Integer i = 0 ; i < size-1 ; i ++){
 			addLinear( (int)(Math.random()*100));
 		}
 	}
-
-  // public OrderedArrayList(ArrayList<Integer> bob){
-    // 1. starts at the beginning of bob and finds the longest possible section that is in order
-      // 1.1 go through bob and for each index, check if it is less than the index above
-      // 1.2 Once this is not the case, exit the loop (do not add any more items of bob to _arr)
-    // 2. for each item in the rest of the bob, adds this items to _arr using addLinear
 
 
 	public boolean addLinear(int value) {
@@ -37,19 +28,16 @@ public class OrderedArrayList {
        this._arr.add(value);
      } else if (this._arr.get(0) > value) {
 			this._arr.add(0,value);
-			//this.size() += 1; // adds the value at the beginning, because it is less than everything already in _arr
 			return true;
 
     }	else if (value > this._arr.get(this._arr.size()-1)) {
 			this._arr.add(value);
-		//	this.size() += 1;
 			return true;
 
     }	else {
 			for(int i = 0; i < this._arr.size(); i++) {
 				if (this._arr.get(i) <= value && this._arr.get(i+1) >= value) { //should this be >= and <= or just > and <
 					this._arr.add(i+1, value);
-				//	this.size() += 1;
 					return true;}
 				}
 			}
@@ -68,13 +56,11 @@ public class OrderedArrayList {
       }
       else if (value <= this.get(0)){
         this._arr.add(0,value);
-  			this.size() += 1;
         return true;
 
       } else if(value >= this.get(this.size() - 1)){
         this._arr.add(value);
         return true;
-
       }
        // exit the loop once the value needs to be right next to splitter
        // these if-else statements handle the edge cases
@@ -94,9 +80,9 @@ public class OrderedArrayList {
 
 
     public Integer get( int i )
-    {
-      return _arr.get(i);
-    }
+      {
+        return _arr.get(i);
+      }
 
 
     public Integer remove( int i )
@@ -107,7 +93,7 @@ public class OrderedArrayList {
       }
 
 
-      public int size()
+    public int size()
       {
         return _arr.size();
       }
@@ -125,17 +111,27 @@ public class OrderedArrayList {
 		return foo;
 	}
 
+
   public static void main(String[] args) {
+
+    // testing constructors
     OrderedArrayList lul = new OrderedArrayList();
+    OrderedArrayList mike = new OrderedArrayList(3);
+    OrderedArrayList jim = new OrderedArrayList(10);
 		OrderedArrayList bob = new OrderedArrayList(23);
 		System.out.println(lul);
-		System.out.println(bob);
+    System.out.println(mike);
+    System.out.println(jim);
+    System.out.println(bob);
 
     //testing size;
-    System.out.println(bob.size());
     System.out.println(lul.size());
+    System.out.println(mike.size());
+    System.out.println(jim.size());
+    System.out.println(bob.size());
 
     // testing add
+    mike.addLinear(2);
     bob.addLinear(20);
     System.out.println(bob);
 
@@ -147,85 +143,32 @@ public class OrderedArrayList {
     bob.remove(15);
     System.out.println(bob);
 
+
+
     // testing binarySearch
     OrderedArrayList Franz = new OrderedArrayList();
    // testing linear search
 
-   Franz.addLinear(1);
+/*   Franz.addLinear(1);
    System.out.println(Franz);
    Franz.addLinear(0);
       System.out.println(Franz);
    Franz.addLinear(4);
       System.out.println(Franz);
    Franz.addLinear(2);
-      System.out.println(Franz);
+      System.out.println(Franz);*/
 
-  // for( int i = 0; i < 3; i++ )
-   //Franz.addLinear( (int)( i) );
-   // System.out.println( Franz );
+   for( int i = 0; i < 3; i++ )
+   Franz.addLinear( (int)( i) );
+
    // testing binary search
-   // Franz = new OrderedArrayList();
-  /* for( int i = 0; i < 3; i++ ){
-     Franz.addBinary( 50 * Math.random() );
+   Franz = new OrderedArrayList();
+   for( int i = 0; i < 23; i++ ){
+     int adding = (int) (50 * Math.random());
+     Franz.addBinary( (int)(adding)) ;
      System.out.println(Franz);
    }
-   */
 
 
-/*
-
-
-
-
-
-
-
-  // inserts newVal at the appropriate index
-  // maintains ascending order of elements
-  // uses a linear search to find appropriate index
-  public void addLinear(Integer newVal)
-  {
-
-  }
-
-  // inserts newVal at the appropriate index
-  // maintains ascending order of elements
-  // uses a binary search to find appropriate index
-  public void addBinary(Integer newVal)
-  {
-
-  }	*/
-
-
-
-/*
-  public OrderedArrayList(ArrayList<Integer> bob){
-    // 1. starts at the beginning of bob and finds the longest possible section that is in order
-      // 1.1 go through bob and for each index, check if it is less than the index above
-      // 1.2 Once this is not the case, exit the loop (do not add any more items of bob to _arr)
-    // 2. for each item in the rest of the bob, adds this items to _arr using addLinear
-
-  }
-
-
-
-/*
-
-    public int find(int value) { // returns the index of a value;
-      // iterate through _arr checking whether every element is the value
-      // alternatively, use a binary search
-      return -1;
-    }
-
-
-
-    public boolean replace(int value, int newValue){
-      // 1. _arr.removeOrd(value)
-      // 2. add the newValue to _arr
-      return true;
-    }
-
-
-*/
 }//end main
 }//end class
