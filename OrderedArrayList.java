@@ -1,63 +1,103 @@
-// addOrd is a nonstatic method. But why can i call it in the constructor without specifying object?
-
+// addLinear is a nonstatic method. But why can i call it in the constructor without specifying object?
 
 import java.util.ArrayList;
 import java.lang.Math;
 public class OrderedArrayList {
 
   private ArrayList<Integer> _arr;
-	private int _size; // instance variable
 
-
-
+  // default constructor
   public OrderedArrayList(){
 		this._arr = new ArrayList<Integer>();
-		this._size = 0;
-  // for(Integer i = 0; i < this.size() ; i++) // iterates through every element in the array
-  //   this.addOrd(_arr[i]); // invokes addOrd on each element in the array
+  for(Integer i = 0; i < this.size() ; i++) // iterates through every element in the array
+    this.addLinear(_arr.get(i)); // invokes addLinear on each element in the array
   }
 
 
 	public OrderedArrayList(int size){
 		this._arr = new ArrayList<Integer>();
 		this._arr.add((int)(Math.random()*100));
-		this._size = 1;
 		for(Integer i = 0 ; i < size-1 ; i ++){
-			addOrd( (int)(Math.random()*100));
+			addLinear( (int)(Math.random()*100));
 		}
-
 	}
 
-	public int getSize(){
-		return this._size;
-	}
 
-	public boolean addOrd(int value) {
-
-		if (this._arr.get(0) > value) {
+	public boolean addLinear(int value) {
+     if (this.size() == 0){
+       this._arr.add(value);
+     } else if (this._arr.get(0) > value) {
 			this._arr.add(0,value);
-			this._size += 1; // adds the value at the beginning, because it is less than everything already in _arr
 			return true;
 
-		}
-
-		else if (value > this._arr.get(this._arr.size()-1)) {
+    }	else if (value > this._arr.get(this._arr.size()-1)) {
 			this._arr.add(value);
-			this._size += 1;
 			return true;
 
-		}
-
-		else {
+    }	else {
 			for(int i = 0; i < this._arr.size(); i++) {
 				if (this._arr.get(i) <= value && this._arr.get(i+1) >= value) { //should this be >= and <= or just > and <
 					this._arr.add(i+1, value);
-					this._size += 1;
 					return true;}
 				}
 			}
 			return false;
-		}//end addOrd
+		}//end addLinear
+
+
+    public boolean addBinary(int value){
+      int minIndexConsidered = 0;
+      int maxIndexConsidered = this.size() - 1;
+      int splitter = (int)( (maxIndexConsidered + minIndexConsidered)/2 );
+      // all of these up here are INDEXES
+      if (this.size() == 0){
+        this._arr.add(value);
+        return true;
+      }
+      else if (value <= this.get(0)){
+        this._arr.add(0,value);
+        return true;
+
+      } else if(value >= this.get(this.size() - 1)){
+        this._arr.add(value);
+        return true;
+      }
+       // exit the loop once the value needs to be right next to splitter
+       // these if-else statements handle the edge cases
+       boolean adjascent = this.get(splitter) <= value && value < this.get(splitter + 1);
+       while (adjascent != true) {
+         if (value < this.get(splitter)) { // now search below the splitter
+           maxIndexConsidered = splitter; // don't look above splitter
+         } else { // the value is above the splitter
+           minIndexConsidered = splitter;
+         }
+         splitter = (int)( (maxIndexConsidered + minIndexConsidered)/2 );
+       }
+       // when it exits this loop, splitter is the index above which the value should be added
+       _arr.add(value, splitter + 1);
+       return true;
+    }// end addBinary
+
+
+    public Integer get( int i )
+      {
+        return _arr.get(i);
+      }
+
+
+    public Integer remove( int i )
+      {
+        Integer removed = _arr.get(i);
+        _arr.remove(i);
+        return removed;
+      }
+
+
+    public int size()
+      {
+        return _arr.size();
+      }
+
 
 	public String toString(){
 		String foo = "[";
@@ -67,80 +107,68 @@ public class OrderedArrayList {
 		if ( foo.length() > 1 )
 			//shave off trailing comma
 			foo = foo.substring( 0, foo.length()-1 );
-		foo +=( "] size:" + this._size);
-		foo+=("\nOrdered?" + this.inOrder());
-
+		foo +=( "] size:" + this.size());
 		return foo;
-
 	}
 
 
-		public boolean inOrder(){
-			for(int i = 0; i < this._arr.size() - 1; i++){
-				if (compareTo(this._arr.get(i), this._arr.get(i+1)) > 0){
-					System.err.println("\nList is not ordered at index: " + i);
-					return false;
-				}
-			// will there be an
-			// error when running this statement because it's not ret an int?
-		}
-		return true;
-	}
+  public static void main(String[] args) {
 
-	public static int compareTo(Integer a, Integer b){
+    // testing constructors
+    OrderedArrayList lul = new OrderedArrayList();
+    OrderedArrayList mike = new OrderedArrayList(3);
+    OrderedArrayList jim = new OrderedArrayList(10);
+		OrderedArrayList bob = new OrderedArrayList(23);
+		System.out.println(lul);
+    System.out.println(mike);
+    System.out.println(jim);
+    System.out.println(bob);
 
-				Integer diff = a - b;
-			if (diff == 0) {
-			 return 0;
-		 } else if(diff > 0){
-			 return 1;
-		 } else {
-			 return -1;
-		 }
-	 }
+    //testing size;
+    System.out.println(lul.size());
+    System.out.println(mike.size());
+    System.out.println(jim.size());
+    System.out.println(bob.size());
 
+    // testing add
+    mike.addLinear(2);
+    bob.addLinear(20);
+    System.out.println(bob);
 
+    // testing get
+    System.out.println(bob.get(5));
 
-
-
-
-/*
-  public OrderedArrayList(ArrayList<Integer> bob){
-    // 1. starts at the beginning of bob and finds the longest possible section that is in order
-      // 1.1 go through bob and for each index, check if it is less than the index above
-      // 1.2 Once this is not the case, exit the loop (do not add any more items of bob to _arr)
-    // 2. for each item in the rest of the bob, adds this items to _arr using addOrd
-
-  }
+    // testing removed
+    System.out.println(bob);
+    bob.remove(15);
+    System.out.println(bob);
 
 
 
-  addOrd - adds a value into the Array List in its right order
-  1) an insertion point is found
-      * we accounted for three cases: if the value would be the smallest, in the middle, or the largest
-  2) adds the value into the array list at that insertion point
-  3) returns true once this operation has been completed
-  */
-/*
+    // testing binarySearch
+    OrderedArrayList Franz = new OrderedArrayList();
+   // testing linear search
 
-    public int find(int value) { // returns the index of a value;
-      // iterate through _arr checking whether every element is the value
-      // alternatively, use a binary search
-      return -1;
-    }
+/*   Franz.addLinear(1);
+   System.out.println(Franz);
+   Franz.addLinear(0);
+      System.out.println(Franz);
+   Franz.addLinear(4);
+      System.out.println(Franz);
+   Franz.addLinear(2);
+      System.out.println(Franz);*/
 
-    public boolean removeOrd(int value) {
-      // 1.find the value using find()
-      // 2.use remove(index) on _arr
-      return true;
-    }
+   for( int i = 0; i < 3; i++ )
+   Franz.addLinear( (int)( i) );
 
-    public boolean replace(int value, int newValue){
-      // 1. _arr.removeOrd(value)
-      // 2. add the newValue to _arr
-      return true;
-    }
+   // testing binary search
+   Franz = new OrderedArrayList();
+   for( int i = 0; i < 23; i++ ){
+     int adding = (int) (50 * Math.random());
+     Franz.addBinary( (int)(adding)) ;
+     System.out.println(Franz);
+   }
 
 
-*/
+}//end main
 }//end class
