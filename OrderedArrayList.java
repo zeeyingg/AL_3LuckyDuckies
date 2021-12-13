@@ -65,7 +65,9 @@ public class OrderedArrayList {
       int maxIndexConsidered = this.size() - 1;
       int splitter = (int)( (maxIndexConsidered + minIndexConsidered)/2 );
       // all of these up here are INDEXES
-      if (value <= this.get(0)){
+      if if (this._size == 0){
+        this._arr.add(value);
+      } else if (value <= this.get(0)){
         this._arr.add(0,value);
   			this._size += 1;
         return true;
