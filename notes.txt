@@ -1,8 +1,20 @@
+3 Lucky Duckies: Gloria Lee, Nora Miller, Ziying Jian
+APCS Lab 02
+Period 8
+Wrapper Classes and Search Types
+2021 - 12 - 12
+Time Spent: 5 hours
+
 DISCO: 
 - (Look at the compareTo method) 
   It appears that by using a non-static method declaration with two arguments, 
   it is possible to invoke said method on the first argument, using the second argument as an argument the normal way.
   This gets around the issue of this being of and unspecified type. 
+
+QCC:
+Why is our code sometimes producing an infinite while loop, and how can we stop this?
+Why are we still getting exceptions some of the time of adding index out of bounds on addBinary?
+What is the best/smartest/cleanest way to do this lab?
 
 
 NOTES TO MYKOLYK (AND TO SELVES): 
