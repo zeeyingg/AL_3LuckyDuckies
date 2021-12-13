@@ -1,6 +1,5 @@
 // addLinear is a nonstatic method. But why can i call it in the constructor without specifying object?
 
-
 import java.util.ArrayList;
 import java.lang.Math;
 public class OrderedArrayList {
@@ -11,7 +10,7 @@ public class OrderedArrayList {
 
   public OrderedArrayList(){
 		this._arr = new ArrayList<Integer>();
-		this._size = 0;
+	//	this._size = 0;
   // for(Integer i = 0; i < this.size() ; i++) // iterates through every element in the array
   //   this.addLinear(_arr[i]); // invokes addLinear on each element in the array
   }
@@ -20,7 +19,7 @@ public class OrderedArrayList {
 	public OrderedArrayList(int size){
 		this._arr = new ArrayList<Integer>();
 		this._arr.add((int)(Math.random()*100));
-		this._size = 1;
+	//	this._size = 1;
 		for(Integer i = 0 ; i < size-1 ; i ++){
 			addLinear( (int)(Math.random()*100));
 		}
@@ -40,7 +39,6 @@ public class OrderedArrayList {
 
 
 	public boolean addLinear(int value) {
-
      if (this.size() == 0){
        this._arr.add(value);
      } else if (this._arr.get(0) > value) {
@@ -98,7 +96,7 @@ public class OrderedArrayList {
        // when it exits this loop, splitter is the index above which the value should be added
        _arr.add(value, splitter + 1);
        return true;
-    }
+    }// end addBinary
 
 
     public Integer get( int i )
@@ -131,7 +129,6 @@ public class OrderedArrayList {
 			foo = foo.substring( 0, foo.length()-1 );
 		foo +=( "] size:" + this._size);
 		return foo;
-
 	}
 
   public static void main(String[] args) {
@@ -180,11 +177,6 @@ public class OrderedArrayList {
    }
    */
 
-
-
-
-
-  }
 
 /*
 
@@ -241,4 +233,5 @@ public class OrderedArrayList {
 
 
 */
+}//end main
 }//end class
