@@ -34,12 +34,12 @@ public class OrderedArrayList {
 	}
 
 
-//addLinear is the same as addLinear
 	public boolean addLinear(int value) {
 
      if (this._size == 0){
        this._arr.add(value);
        return true;
+
      } else if (this._arr.get(0) > value) {
 			this._arr.add(0,value);
 			this._size += 1; // adds the value at the beginning, because it is less than everything already in _arr
@@ -60,6 +60,7 @@ public class OrderedArrayList {
 			}
 			return false;
 		}//end addLinear
+
 
     public boolean addBinary(int value){
       int minIndexConsidered = 0;
@@ -155,12 +156,12 @@ public class OrderedArrayList {
     // testing binarySearch
     OrderedArrayList Franz = new OrderedArrayList();
    // testing linear search
-   for( int i = 0; i < 5; i++ )
-     Franz.addLinear( (int)( 6 * Math.random() ) );
+   for( int i = 0; i < 3; i++ )
+   Franz._arr.addLinear( (int)( 6 * Math.random() ) );
    System.out.println( Franz );
    // testing binary search
    Franz = new OrderedArrayList();
-   for( int i = 0; i < 5; i++ )
+   for( int i = 0; i < 3; i++ )
      Franz.addBinary( (int)( 6 * Math.random() ) );
    System.out.println( Franz );
 
