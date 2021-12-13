@@ -45,11 +45,7 @@ public class ALTester{
 		System.out.println(ALTester.inOrder(bob) + " ... expected false");
 
 
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> 56efb5dd81e714e507c1048ddf55271d4deee52b
 
 
 

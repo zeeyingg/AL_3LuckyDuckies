@@ -72,9 +72,10 @@ public class OrderedArrayList {
            minIndexConsidered = splitter;
          }
          splitter = (int)( (maxIndexConsidered + minIndexConsidered)/2 );
+         
        }
        // when it exits this loop, splitter is the index above which the value should be added
-       _arr.add(value, splitter + 1);
+       _arr.add(splitter+1,value) ;
        return true;
     }// end addBinary
 
@@ -117,6 +118,7 @@ public class OrderedArrayList {
     // testing constructors
     OrderedArrayList lul = new OrderedArrayList();
     OrderedArrayList mike = new OrderedArrayList(3);
+    mike.addBinary(50);
     OrderedArrayList jim = new OrderedArrayList(10);
 		OrderedArrayList bob = new OrderedArrayList(23);
 		System.out.println(lul);
@@ -124,6 +126,9 @@ public class OrderedArrayList {
     System.out.println(jim);
     System.out.println(bob);
 
+    System.out.println(bob);
+
+System.out.println(bob);
     //testing size;
     System.out.println(lul.size());
     System.out.println(mike.size());
@@ -157,7 +162,7 @@ public class OrderedArrayList {
       System.out.println(Franz);
    Franz.addLinear(2);
       System.out.println(Franz);*/
-
+/*
    for( int i = 0; i < 3; i++ )
    Franz.addLinear( (int)( i) );
 
@@ -168,6 +173,7 @@ public class OrderedArrayList {
      Franz.addBinary( (int)(adding)) ;
      System.out.println(Franz);
    }
+   */
 
 
 }//end main
