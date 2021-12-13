@@ -45,10 +45,7 @@ public class ALTester{
 		System.out.println(ALTester.inOrder(bob) + " ... expected false");
 
 
-		OrderedArrayList lul = new OrderedArrayList();
-		OrderedArrayList bob = new OrderedArrayList(23);
-		System.out.println(lul);
-		System.out.println(bob);
+		
 
 
 
