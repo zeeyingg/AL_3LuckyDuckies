@@ -34,7 +34,9 @@ public class OrderedArrayList {
 //addLinear is the same as addLinear
 	public boolean addLinear(int value) {
 
-    if (this._arr.get(0) > value) {
+     if (this._arr._size() == 0){
+       this._arr.add(value);
+     } else if (this._arr.get(0) > value) {
 			this._arr.add(0,value);
 			this._size += 1; // adds the value at the beginning, because it is less than everything already in _arr
 			return true;
