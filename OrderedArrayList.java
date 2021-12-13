@@ -88,7 +88,7 @@ public class OrderedArrayList {
 	}
 
 	public static int compareTo(Integer a, Integer b){
-System.out.println(a+"+"+b);
+
 				Integer diff = a - b;
 			if (diff == 0) {
 			 return 0;
