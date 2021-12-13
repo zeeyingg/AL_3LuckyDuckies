@@ -6,7 +6,6 @@ import java.lang.Math;
 public class OrderedArrayList {
 
   private ArrayList<Integer> _arr;
-	private int _size; // instance variable
 
 
 
@@ -25,21 +24,25 @@ public class OrderedArrayList {
 		for(Integer i = 0 ; i < size-1 ; i ++){
 			addLinear( (int)(Math.random()*100));
 		}
-
 	}
 
+  // public OrderedArrayList(ArrayList<Integer> bob){
+    // 1. starts at the beginning of bob and finds the longest possible section that is in order
+      // 1.1 go through bob and for each index, check if it is less than the index above
+      // 1.2 Once this is not the case, exit the loop (do not add any more items of bob to _arr)
+    // 2. for each item in the rest of the bob, adds this items to _arr using addLinear
 
-	public int getSize(){
-		return this._size;
-	}
+  }
+
+	// public int getSize(){
+	// 	return this._size;
+	// }
 
 
 	public boolean addLinear(int value) {
 
-     if (this._size == 0){
+     if (this.size() == 0){
        this._arr.add(value);
-       return true;
-
      } else if (this._arr.get(0) > value) {
 			this._arr.add(0,value);
 			this._size += 1; // adds the value at the beginning, because it is less than everything already in _arr
@@ -156,14 +159,27 @@ public class OrderedArrayList {
     // testing binarySearch
     OrderedArrayList Franz = new OrderedArrayList();
    // testing linear search
-   for( int i = 0; i < 3; i++ )
-   Franz.addLinear( (int)( i));
-   System.out.println( Franz );
+
+   Franz.addLinear(1);
+   System.out.println(Franz);
+   Franz.addLinear(0);
+      System.out.println(Franz);
+   Franz.addLinear(4);
+      System.out.println(Franz);
+   Franz.addLinear(2);
+      System.out.println(Franz);
+
+  // for( int i = 0; i < 3; i++ )
+   //Franz.addLinear( (int)( i) );
+   // System.out.println( Franz );
    // testing binary search
-   Franz = new OrderedArrayList();
-   for( int i = 0; i < 3; i++ ){}
-     Franz.addBinary( (int)( i ));
-   System.out.println( Franz );
+   // Franz = new OrderedArrayList();
+  /* for( int i = 0; i < 3; i++ ){
+     Franz.addBinary( 50 * Math.random() );
+     System.out.println(Franz);
+   }
+   */
+
 
 
 
