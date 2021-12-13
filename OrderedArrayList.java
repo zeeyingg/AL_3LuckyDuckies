@@ -28,6 +28,10 @@ public class OrderedArrayList {
 
 	}
 
+	public int getSize(){
+		return this._size;
+	}
+
 	public boolean addOrd(int value) {
 
 		if (this._arr.get(0) > value) {
@@ -63,18 +67,44 @@ public class OrderedArrayList {
 		if ( foo.length() > 1 )
 			//shave off trailing comma
 			foo = foo.substring( 0, foo.length()-1 );
-		foo += "]";
+		foo +=( "] size:" + this._size);
+		foo+=("\nOrdered?" + this.inOrder());
 
 		return foo;
 
 	}
 
 
+		public boolean inOrder(){
+			for(int i = 0; i < this._arr.size() - 1; i++){
+				if (compareTo(this._arr.get(i), this._arr.get(i+1)) > 0){
+					System.err.println("\nList is not ordered at index: " + i);
+					return false;
+				}
+			// will there be an
+			// error when running this statement because it's not ret an int?
+		}
+		return true;
+	}
+
+	public static int compareTo(Integer a, Integer b){
+System.out.println(a+"+"+b);
+				Integer diff = a - b;
+			if (diff == 0) {
+			 return 0;
+		 } else if(diff > 0){
+			 return 1;
+		 } else {
+			 return -1;
+		 }
+	 }
 
 
 
 
 
+
+/*
   public OrderedArrayList(ArrayList<Integer> bob){
     // 1. starts at the beginning of bob and finds the longest possible section that is in order
       // 1.1 go through bob and for each index, check if it is less than the index above
@@ -84,7 +114,7 @@ public class OrderedArrayList {
   }
 
 
-  /*
+
   addOrd - adds a value into the Array List in its right order
   1) an insertion point is found
       * we accounted for three cases: if the value would be the smallest, in the middle, or the largest
