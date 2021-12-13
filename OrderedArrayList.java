@@ -33,15 +33,18 @@ public class OrderedArrayList {
 	}
 //addLinear is the same as addLinear
 	public boolean addLinear(int value) {
-		if (this._arr.get(0) > value) {
+
+    if (this._arr.get(0) > value) {
 			this._arr.add(0,value);
 			this._size += 1; // adds the value at the beginning, because it is less than everything already in _arr
 			return true;
-		}	else if (value > this._arr.get(this._arr.size()-1)) {
+
+    }	else if (value > this._arr.get(this._arr.size()-1)) {
 			this._arr.add(value);
 			this._size += 1;
 			return true;
-		}	else {
+
+    }	else {
 			for(int i = 0; i < this._arr.size(); i++) {
 				if (this._arr.get(i) <= value && this._arr.get(i+1) >= value) { //should this be >= and <= or just > and <
 					this._arr.add(i+1, value);
@@ -61,11 +64,14 @@ public class OrderedArrayList {
         this._arr.add(0,value);
   			this._size += 1;
         return true;
+
       } else if(value >= this.get(this.size() - 1)){
         this._arr.add(value);
         return true;
+
       }
        // exit the loop once the value needs to be right next to splitter
+       // these if-else statements handle the edge cases
        boolean adjascent = this.get(splitter) <= value && value < this.get(splitter + 1);
        while (adjascent != true) {
          if (value < this.get(splitter)) { // now search below the splitter
@@ -76,22 +82,16 @@ public class OrderedArrayList {
          splitter = int splitter = (int)( (maxIndexConsidered + minIndexConsidered)/2 );
        }
        // when it exits this loop, splitter is the index above which the value should be added
-       _arr.add()
-
-
-
-      // 1. separate out edge cases
-      // and handle them
-      // 2. take the _size and half it
-      // compare it to the value we are trying to add
-      //https://www.geeksforgeeks.org/java-program-to-perform-binary-search-on-arraylist/
-
+       _arr.add(value, splitter + 1);
+       return true;
     }
+
 
     public Integer get( int i )
     {
       return _arr.get(i);
     }
+
 
     public Integer remove( int i )
       {
@@ -100,10 +100,12 @@ public class OrderedArrayList {
         return removed;
       }
 
+
       public int size()
       {
         return _arr.size();
       }
+
 
 	public String toString(){
 		String foo = "[";
@@ -114,8 +116,6 @@ public class OrderedArrayList {
 			//shave off trailing comma
 			foo = foo.substring( 0, foo.length()-1 );
 		foo +=( "] size:" + this._size);
-		//foo+=("\nOrdered?" + this.inOrder());
-
 		return foo;
 
 	}
@@ -141,6 +141,18 @@ public class OrderedArrayList {
     System.out.println(bob);
     bob.remove(15);
     System.out.println(bob);
+
+    // testing binarySearch
+    OrderedArrayList Franz = new OrderedArrayList();
+   // testing linear search
+   for( int i = 0; i < 15; i++ )
+     Franz.addLinear( (int)( 50 * Math.random() ) );
+   System.out.println( Franz );
+   // testing binary search
+   Franz = new OrderedArrayList();
+   for( int i = 0; i < 15; i++ )
+     Franz.addBinary( (int)( 50 * Math.random() ) );
+   System.out.println( Franz );
 
 
 
