@@ -24,4 +24,8 @@ How this overwritten constructor works:
   
  * a toString method that specifies that when printing out an array list, print out their values with commas separating each one and brackets on both sides.
   
+ * A method compareTo takes two ints and compares them to each other. Returns 0 if the ints are equal. Returns 1 if first int > second int. Returns -1 if first int < second int.
+ 
+ * method inOrder returns boolean and checks if the Array List is in order. For each index of Array List (excluding the last one), compare the Integer value at that index with the one directly after. If at any point it is found that the Integer value is greater than the one after, returns false. 
+ Also prints out index at which the issue with Order was encountered.
   
