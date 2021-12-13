@@ -5,7 +5,7 @@ Roster: Ziying Jian, Nora Miller, Gloria Lee
 
 #### ALTester Algo
 <restate here>
-  
+  Creates instance of class OrderedArrayList with 23 elements. Tests the addLinear as well as the addBinary methods on Franz. The inOrder algorithm uses compareTo on every pair of consecutive indexes. 
 #### OrderedArrayList Algo
 * Instance vars ArrayList<Integer> _arr and int _size.
 * A default constructor that creates a new Array List and sets var _size to 0.
