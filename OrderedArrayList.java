@@ -79,7 +79,7 @@ public class OrderedArrayList {
          } else { // the value is above the splitter
            minIndexConsidered = splitter;
          }
-         int splitter = (int)( (maxIndexConsidered + minIndexConsidered)/2 );
+         splitter = (int)( (maxIndexConsidered + minIndexConsidered)/2 );
        }
        // when it exits this loop, splitter is the index above which the value should be added
        _arr.add(value, splitter + 1);
