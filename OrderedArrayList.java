@@ -155,13 +155,13 @@ public class OrderedArrayList {
     // testing binarySearch
     OrderedArrayList Franz = new OrderedArrayList();
    // testing linear search
-   for( int i = 0; i < 15; i++ )
-     Franz.addLinear( (int)( 50 * Math.random() ) );
+   for( int i = 0; i < 5; i++ )
+     Franz.addLinear( (int)( 6 * Math.random() ) );
    System.out.println( Franz );
    // testing binary search
    Franz = new OrderedArrayList();
-   for( int i = 0; i < 15; i++ )
-     Franz.addBinary( (int)( 50 * Math.random() ) );
+   for( int i = 0; i < 5; i++ )
+     Franz.addBinary( (int)( 6 * Math.random() ) );
    System.out.println( Franz );
 
 
