@@ -39,6 +39,7 @@ public class OrderedArrayList {
 
      if (this._size == 0){
        this._arr.add(value);
+       return true;
      } else if (this._arr.get(0) > value) {
 			this._arr.add(0,value);
 			this._size += 1; // adds the value at the beginning, because it is less than everything already in _arr
@@ -67,7 +68,9 @@ public class OrderedArrayList {
       // all of these up here are INDEXES
       if (this._size == 0){
         this._arr.add(value);
-      } else if (value <= this.get(0)){
+        return true;
+      }
+      else if (value <= this.get(0)){
         this._arr.add(0,value);
   			this._size += 1;
         return true;
