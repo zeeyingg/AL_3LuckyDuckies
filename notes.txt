@@ -1,3 +1,10 @@
+DISCO: 
+- (Look at the compareTo method) 
+  It appears that by using a non-static method declaration with two arguments, 
+  it is possible to invoke said method on the first argument, using the second argument as an argument the normal way.
+  This gets around the issue of this being of and unspecified type. 
+
+
 NOTES TO MYKOLYK (AND TO SELVES): 
 - Plans in plans.pdf are in order, with the most recent at the top and the least recent at the bottom. All plans are included. 
 
