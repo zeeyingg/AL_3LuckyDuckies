@@ -31,8 +31,6 @@ public class OrderedArrayList {
       // 1.2 Once this is not the case, exit the loop (do not add any more items of bob to _arr)
     // 2. for each item in the rest of the bob, adds this items to _arr using addLinear
 
-  }
-
 	// public int getSize(){
 	// 	return this._size;
 	// }
