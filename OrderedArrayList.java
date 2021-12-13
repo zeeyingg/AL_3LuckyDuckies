@@ -28,13 +28,16 @@ public class OrderedArrayList {
 
 	}
 
+
 	public int getSize(){
 		return this._size;
 	}
+
+
 //addLinear is the same as addLinear
 	public boolean addLinear(int value) {
 
-     if (this._arr._size == 0){
+     if (this._size == 0){
        this._arr.add(value);
      } else if (this._arr.get(0) > value) {
 			this._arr.add(0,value);
