@@ -1,3 +1,7 @@
+NOTES TO MYKOLYK (AND TO SELVES): 
+- Plans in plans.pdf are in order, with the most recent at the top and the least recent at the bottom. All plans are included. 
+
+
 TO DO ON MONDAY: 
 
 1. Run ALTester; make sure that inOrder() works
