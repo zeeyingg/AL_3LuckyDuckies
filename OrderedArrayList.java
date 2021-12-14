@@ -72,7 +72,7 @@ public class OrderedArrayList {
            minIndexConsidered = splitter;
          }
          splitter = (int)( (maxIndexConsidered + minIndexConsidered)/2 );
-         
+
        }
        // when it exits this loop, splitter is the index above which the value should be added
        _arr.add(splitter+1,value) ;
@@ -115,44 +115,57 @@ public class OrderedArrayList {
 
   public static void main(String[] args) {
 
-    // testing constructors
+    // addBinary
     OrderedArrayList lul = new OrderedArrayList();
-    OrderedArrayList mike = new OrderedArrayList(3);
-    mike.addBinary(50);
-    OrderedArrayList jim = new OrderedArrayList(10);
-		OrderedArrayList bob = new OrderedArrayList(23);
-		System.out.println(lul);
-    System.out.println(mike);
-    System.out.println(jim);
-    System.out.println(bob);
-
-    System.out.println(bob);
-
-System.out.println(bob);
-    //testing size;
-    System.out.println(lul.size());
-    System.out.println(mike.size());
-    System.out.println(jim.size());
-    System.out.println(bob.size());
-
-    // testing add
-    mike.addLinear(2);
-    bob.addLinear(20);
-    System.out.println(bob);
-
-    // testing get
-    System.out.println(bob.get(5));
-
-    // testing removed
-    System.out.println(bob);
-    bob.remove(15);
-    System.out.println(bob);
+    System.out.println(lul);
+    lul.addLinear(0);
+    System.out.println(lul);
+    lul.addLinear(2);
+    System.out.println(lul);
+    lul.addLinear(3);
+    System.out.println(lul);
+    lul.addLinear(4);
+    System.out.println(lul);
+    lul.addBinary(1);
+    System.out.println(lul);
 
 
-
-    // testing binarySearch
-    OrderedArrayList Franz = new OrderedArrayList();
-   // testing linear search
+//     OrderedArrayList mike = new OrderedArrayList(3);
+//     mike.addBinary(50);
+//     //OrderedArrayList jim = new OrderedArrayList(10);
+// 		OrderedArrayList bob = new OrderedArrayList(23);
+// 		System.out.println(lul);
+//     System.out.println(mike);
+//     System.out.println(jim);
+//     System.out.println(bob);
+//
+//     System.out.println(bob);
+//
+// System.out.println(bob);
+//     //testing size;
+//     System.out.println(lul.size());
+//     System.out.println(mike.size());
+//     System.out.println(jim.size());
+//     System.out.println(bob.size());
+//
+//     // testing add
+//     mike.addLinear(2);
+//     bob.addLinear(20);
+//     System.out.println(bob);
+//
+//     // testing get
+//     System.out.println(bob.get(5));
+//
+//     // testing removed
+//     System.out.println(bob);
+//     bob.remove(15);
+//     System.out.println(bob);
+//
+//
+//
+//     // testing binarySearch
+//     OrderedArrayList Franz = new OrderedArrayList();
+   //testing linear search
 
 /*   Franz.addLinear(1);
    System.out.println(Franz);
